@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Voting System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-animation">
+        <div class="ball ball-1"></div>
+        <div class="ball ball-2"></div>
+        <div class="ball ball-3"></div>
+    </div>
+
+    <div class="container">
+        <!-- Login Page -->
+        <div id="loginPage" class="page active">
+            <div class="logo">
+                <div class="logo-icon">🗳️</div>
+                <h1>NSS Voting</h1>
+            </div>
+            <form id="loginForm" class="form-animate">
+                <div class="input-group">
+                    <input type="email" id="email" placeholder=" " required>
+                    <label for="email">Enter your email</label>
+                    <div class="input-icon">📧</div>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="code" placeholder=" " required>
+                    <label for="code">Enter verification code</label>
+                    <div class="input-icon">🔒</div>
+                </div>
+                <button type="submit" class="btn-primary">
+                    <span class="btn-text">Verify & Vote</span>
+                    <div class="btn-loader"></div>
+                </button>
+            </form>
+            <div id="loginMessage" class="message"></div>
+        </div>
+
+        <!-- Voting Page -->
+        <div id="votingPage" class="page">
+            <div class="header">
+                <h1>Cast Your Vote</h1>
+                <p class="voter-info">Welcome, <span id="voterEmail"></span></p>
+            </div>
+            
+            <form id="votingForm">
+                <div class="candidate-section slide-in">
+                    <h2>👦 Select ONE Boy Candidate</h2>
+                    <div id="boyCandidates" class="candidates-grid">
+                        <!-- Boys will be loaded here -->
+                    </div>
+                </div>
+                
+                <div class="candidate-section slide-in">
+                    <h2>👧 Select ONE Girl Candidate</h2>
+                    <div id="girlCandidates" class="candidates-grid">
+                        <!-- Girls will be loaded here -->
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn-primary submit-vote">
+                    <span class="btn-text">Submit Vote</span>
+                    <div class="btn-loader"></div>
+                </button>
+            </form>
+            <div id="votingMessage" class="message"></div>
+        </div>
+
+        <!-- Success Page -->
+        <div id="successPage" class="page">
+            <div class="success-animation">
+                <div class="checkmark">✓</div>
+            </div>
+            <h1>Vote Submitted Successfully!</h1>
+            <p class="success-text">Thank you for participating in the election. Your vote has been securely recorded.</p>
+            <div class="confetti"></div>
+        </div>
+
+        <!-- Error Page -->
+        <div id="errorPage" class="page">
+            <div class="error-animation">
+                <div class="error-icon">⚠️</div>
+            </div>
+            <h1>Oops! Something went wrong</h1>
+            <p id="errorText" class="error-text">Please try again later</p>
+            <button class="btn-secondary" onclick="location.reload()">Try Again</button>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+</body>
+</html>
